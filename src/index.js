@@ -62,24 +62,26 @@ const gendiff = (filePath1, filePath2) => {
   const data2 = parsesFile(file2);
 
   const informationDiff = getDiffInformation(data1, data2);
-  console.log(informationDiff);
+  // console.log(informationDiff);
   const result = informationDiff.map((diff) => {
     const typeDiff = diff.type;
     switch (typeDiff) {
       case 'delited':
-        return `- ${diff.key}: ${diff.value}`;
+        return `  - ${diff.key}: ${diff.value}`;
       case 'unchanges':
-        return `  ${diff.key}: ${diff.value}`;
+        return `    ${diff.key}: ${diff.value}`;
       case 'changet':
-        return `- ${diff.key}: ${diff.value1} \n +${diff.key}: ${diff.value2}`;
+        return `  - ${diff.key}: ${diff.value1} \n  + ${diff.key}: ${diff.value2}`;
       case 'added':
-        return `+ ${diff.key}: ${diff.value1}`;
+        return `  + ${diff.key}: ${diff.value}`;
+      default:
+        return null;
     }
   });
-  console.log(result);
+  // console.log(`{\n${result.join('\n')}\n}`);
   return `{\n${result.join('\n')}\n}`;
 };
 
-gendiff('../__fixtures__/file1.json', '../__fixtures__/file2.json');
+// gendiff('../__fixtures__/file1.json', '../__fixtures__/file2.json');
 
 export default gendiff;
