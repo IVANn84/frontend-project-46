@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import _ from 'lodash';
 
-const getfilePath = (filePath) => resolve(cwd(), filePath);
+const getfilepath = (filepath) => resolve(cwd(), '__fixtures__', filepath);
 
 const readFile = (path) => readFileSync(path, 'utf-8');
 
@@ -51,9 +51,10 @@ const getDiffInformation = (data1, data2) => {
   });
   return result;
 };
-const gendiff = (filePath1, filePath2) => {
-  const path1 = getfilePath(filePath1);
-  const path2 = getfilePath(filePath2);
+
+const gendiff = (filepath1, filepath2) => {
+  const path1 = getfilepath(filepath1);
+  const path2 = getfilepath(filepath2);
 
   const file1 = readFile(path1);
   const file2 = readFile(path2);
@@ -81,7 +82,5 @@ const gendiff = (filePath1, filePath2) => {
   // console.log(`{\n${result.join('\n')}\n}`);
   return `{\n${result.join('\n')}\n}`;
 };
-
-// gendiff('../__fixtures__/file1.json', '../__fixtures__/file2.json');
 
 export default gendiff;
