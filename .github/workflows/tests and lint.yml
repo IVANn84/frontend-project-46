@@ -12,4 +12,4 @@ jobs:
       # Запускаем линтер
       - run: make lint
       # Запускаем тесты
-      - run: runingTest
+      - run: make runingTest
