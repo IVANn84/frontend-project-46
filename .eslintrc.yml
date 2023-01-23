@@ -3,9 +3,11 @@ env:
 
 extends:
   - airbnb-base
+
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+
 rules:
   no-console: 0
   import/extensions: # FIXME: remove when rule will be adjusted for new nodejs version

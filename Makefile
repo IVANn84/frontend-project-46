@@ -13,8 +13,14 @@ test:
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
 
+runingTest:
+	NODE_OPTIONS=--experimental-vm-modules npx jest
+
 lint:
-	npx eslint .
+	npx eslint .	
+
+fix:
+		npx eslint . --fix
 
 publish:
 	npm publish --dry-run

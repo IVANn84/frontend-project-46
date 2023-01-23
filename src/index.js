@@ -53,10 +53,10 @@ const getDiffInformation = (data1, data2) => {
 };
 
 const gendiff = (filepath1, filepath2) => {
-  const file1 = readFile(getfilepath(filepath1));
-  const file2 = readFile(getfilepath(filepath2));
-
-  const informationDiff = getDiffInformation(parsesFile(file1), parsesFile(file2));
+  const informationDiff = getDiffInformation(
+    parsesFile(readFile(getfilepath(filepath1))),
+    parsesFile(readFile(getfilepath(filepath2))),
+  );
   // console.log(informationDiff);
   const result = informationDiff.map((diff) => {
     const typeDiff = diff.type;
