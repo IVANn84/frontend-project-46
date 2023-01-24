@@ -10,10 +10,10 @@ jobs:
       - uses: actions/checkout@v2
       # Устанавливаем зависимости
       - run: make install-deps
-      # Запускаем линтер
-      - run: make lint
       # Запускаем тесты
       # у шагов может быть имя, иногда это помогает отладке
       # имя выводится на Github при просмотре сборки
       - name: run tests
         run: make tests
+      # Запускаем линтер
+      - run: make lint
