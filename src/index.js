@@ -1,11 +1,11 @@
 import { cwd } from 'node:process';
-import { readFileSync } from 'node:fs';
+import fs from 'fs';
 import { resolve } from 'node:path';
 import _ from 'lodash';
 
 const getfilepath = (filepath) => resolve(cwd(), filepath);
 
-const readFile = (path) => readFileSync(path, 'utf-8');
+const readFile = (path) => fs.readFileSync(path, 'utf-8');
 
 const parsesFile = (file) => JSON.parse(file);
 
