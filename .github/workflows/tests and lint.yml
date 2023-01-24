@@ -9,7 +9,7 @@ jobs:
       # Клонируем репозиторий
       - uses: actions/checkout@v2
       # Устанавливаем зависимости
-      - run: make npm ci
+      - run: make install-deps
       # Запускаем линтер
       - run: make lint
       # Запускаем тесты
