@@ -16,4 +16,4 @@ jobs:
       # у шагов может быть имя, иногда это помогает отладке
       # имя выводится на Github при просмотре сборки
       - name: run tests
-        run: make test
+        run: make tests
