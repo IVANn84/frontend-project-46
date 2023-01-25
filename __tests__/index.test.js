@@ -1,7 +1,5 @@
-// import { test, expect } from 'jest';
-// import path from 'path';
 import url from 'url';
-import path,{ dirname } from 'node:path';
+import path, { dirname } from 'node:path';
 import fs from 'fs';
 import gendiff from '../src/index.js';
 

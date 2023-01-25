@@ -7,7 +7,7 @@
   "description": "second project Hexlet",
   "main": "src/index.js",
   "scripts": {
-    "test": "npx jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-promise": "^6.0.1",
     "jest": "^29.3.1",
