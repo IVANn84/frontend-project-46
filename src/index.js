@@ -10,45 +10,39 @@ const readFile = (path) => fs.readFileSync(path, 'utf-8');
 const parsesFile = (file) => JSON.parse(file);
 
 const getDiffInformation = (data1, data2) => {
-  const keys1 = Object.keys(data1);
-  const keys2 = Object.keys(data2);
-
-  const keys = _.sortBy(_.union(keys1, keys2));
+  const keys = _.sortBy(_.union(Object.keys(data1), Object.keys(data2)));
+  console.log(data1, data2);
 
   const result = keys.map((key) => {
-    const value1 = data1[key];
-    const value2 = data2[key];
-
-    if (_.isEqual(value1, value2)) {
-      return {
-        type: 'unchanges',
-        key,
-        value: value1,
-      };
-    }
-    if (value1 && value2 && value1 !== value2) {
-      return {
-        type: 'changet',
-        key,
-        value1,
-        value2,
-      };
-    }
     if (!Object.hasOwn(data2, key)) {
       return {
-        type: 'delited',
         key,
-        value: value1,
+        type: 'delited',
+        value: data1[key],
       };
     }
     if (!Object.hasOwn(data1, key)) {
       return {
-        type: 'added',
         key,
-        value: value2,
+        type: 'added',
+        value: data2[key],
       };
     }
+    if (!_.isEqual(data1[key], data2[key])) {
+      return {
+        key,
+        type: 'changet',
+        value1: data1[key],
+        value2: data2[key],
+      };
+    }
+    return {
+      key,
+      type: 'unchanges',
+      value: data1[key],
+    };
   });
+  console.log(result);
   return result;
 };
 
