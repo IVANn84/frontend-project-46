@@ -1,15 +1,17 @@
 import { cwd } from 'node:process';
 import fs from 'fs';
-import { resolve } from 'node:path';
+import { resolve, extname } from 'node:path';
 import _ from 'lodash';
+import parsesFile from './parsers.js';
 
-const getfilepath = (filepath) => resolve(cwd(), filepath);
+const readFile = (filepath) => {
+  const fullFilePath = resolve(cwd(), filepath);
+  const dataFile = fs.readFileSync(fullFilePath, 'utf-8');
+  const extension = extname(filepath);
+  return parsesFile(dataFile, extension);
+};
 
-const readFile = (path) => fs.readFileSync(path, 'utf-8');
-
-const parsesFile = (file) => JSON.parse(file);
-
-const getDiffInformation = (data1, data2) => {
+const getTree = (data1, data2) => {
   const keys = _.sortBy(_.union(Object.keys(data1), Object.keys(data2)));
   console.log(data1, data2);
 
@@ -47,10 +49,7 @@ const getDiffInformation = (data1, data2) => {
 };
 
 const gendiff = (filepath1, filepath2) => {
-  const informationDiff = getDiffInformation(
-    parsesFile(readFile(getfilepath(filepath1))),
-    parsesFile(readFile(getfilepath(filepath2))),
-  );
+  const informationDiff = getTree(readFile(filepath1), readFile(filepath2));
   // console.log(informationDiff);
   const result = informationDiff.map((diff) => {
     const typeDiff = diff.type;
