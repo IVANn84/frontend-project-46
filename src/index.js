@@ -14,7 +14,7 @@ const readFile = (filepath) => {
 
 const gendiff = (filepath1, filepath2) => {
   const informationDiff = getTree(readFile(filepath1), readFile(filepath2));
-  console.log(informationDiff);
+  // console.log(informationDiff);
 
   return formater(informationDiff);
 };
