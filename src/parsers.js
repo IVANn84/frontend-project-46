@@ -9,7 +9,6 @@ export default (dataFile, extension) => {
     case '.yaml':
       return YAML.load(dataFile);
     default:
-      throw new Error('Unknown format!');
-    // return null;
+      throw new Error(`'Unknown format! ${extension}'`);
   }
 };
