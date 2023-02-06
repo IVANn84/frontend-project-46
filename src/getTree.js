@@ -2,7 +2,6 @@ import _ from 'lodash';
 
 const getTree = (data1, data2) => {
   const keys = _.sortBy(_.union(Object.keys(data1), Object.keys(data2)));
-  // console.log(data1, data2);
 
   const result = keys.map((key) => {
     if (!Object.hasOwn(data2, key)) {
@@ -40,7 +39,6 @@ const getTree = (data1, data2) => {
       value: data1[key],
     };
   });
-  // console.log(result);
   return result;
 };
 
