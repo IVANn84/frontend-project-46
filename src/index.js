@@ -20,7 +20,6 @@ const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
 
   const extensionFile1 = getExtension(filepath1);
   const extensionFile2 = getExtension(filepath2);
-  console.log(extensionFile1);
 
   const informationDiff = getTree(
     parsesFile(dataFile1, extensionFile1),
