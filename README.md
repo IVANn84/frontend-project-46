@@ -9,36 +9,61 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/caa4e2e20a758eee59ad/test_coverage)](https://codeclimate.com/github/IVANn84/frontend-project-46/test_coverage)
 
 
-Difference Generator
+# Difference Generator
 
-How it works
-The program defines a difference between structures of two files. Accepted extentions for input are yaml and json. Output formats are plain, JSON and stylish as default. For help type gendiff -h.
+## **Description:**
+Gendiff is a utility compares two configuration files and shows a difference.
 
-Sistem requirements:
+## **How it works:**
+The program defines a difference between structures of two files. Accepted extentions for input are yaml and json. Output formats are plain, JSON and stylish as default. For help type:
+```bash
+gendiff -h
+```
 
-  Ubuntu Linux
-  Node.js v18.0.0
+## **Sistem requirements:**
 
-Installlation:
+  ***Ubuntu Linux,***
+  ***Node.js v18.0.0***
 
-  npm ci or make install
+## **Installation:**
+1. Clone the project
+2. Install dependencies
 
-Example:
+```bash
+ npm ci,
+ ```
+ or
+ ```bash
+ make install
+ ```
+ ### **Usage:**
+```
+Usage: gendiff [options] <filepath1> <filepath2>
 
-  Simple:
+Compares two configuration files and shows a difference.
+
+Options:
+  -V, --version        output the version number
+  -f, --format <type>  output format (default: "stylish")
+  -h, --help           display help for command
+```
+
+# Example:
+
+  ## _Simple:_
 
 https://asciinema.org/a/ddEVlKZP6zVk0Mkpgddw3vFH1
 
 
-  Stylish:
+  ## _Stylish:_
 
  https://asciinema.org/a/lHDTQpcTx0slQfoYO3iD1R99W
 
  
-  Plain:
+  ## _Plain:_
 
  https://asciinema.org/a/gmiPAoU1g1EIE9bKDKjtRaTow
 
-  JSON:
+  ## _JSON:_
 
  https://asciinema.org/a/9oNgQVFwHdIQ09uy8CNruySNH

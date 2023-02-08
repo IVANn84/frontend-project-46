@@ -7,7 +7,7 @@ import formatter from './formatters/index.js';
 
 const getFullFilePath = (filepath) => resolve(cwd(), filepath);
 
-const getExtension = (filepath) => extname(filepath).substring(1);
+const getFormat = (filepath) => extname(filepath).substring(1);
 
 const readFile = (filePath) => fs.readFileSync(filePath, 'utf-8');
 
@@ -18,12 +18,12 @@ const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
   const dataFile1 = readFile(pathFile1);
   const dataFile2 = readFile(pathFile2);
 
-  const extensionFile1 = getExtension(filepath1);
-  const extensionFile2 = getExtension(filepath2);
+  const formatFile1 = getFormat(filepath1);
+  const formatFile2 = getFormat(filepath2);
 
   const informationDiff = getTree(
-    parsesFile(dataFile1, extensionFile1),
-    parsesFile(dataFile2, extensionFile2),
+    parsesFile(dataFile1, formatFile1),
+    parsesFile(dataFile2, formatFile2),
   );
 
   return formatter(informationDiff, formatName);

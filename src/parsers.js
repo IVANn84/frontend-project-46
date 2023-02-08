@@ -1,7 +1,7 @@
 import YAML from 'js-yaml';
 
-export default (dataFile, extension) => {
-  switch (extension) {
+export default (dataFile, format) => {
+  switch (format) {
     case 'json':
       return JSON.parse(dataFile);
     case 'yml':
@@ -9,6 +9,6 @@ export default (dataFile, extension) => {
     case 'yaml':
       return YAML.load(dataFile);
     default:
-      throw new Error(`'Unknown format! ${extension}'`);
+      throw new Error(`'Unknown format! ${format}'`);
   }
 };
