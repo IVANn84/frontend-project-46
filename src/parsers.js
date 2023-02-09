@@ -1,13 +1,13 @@
 import YAML from 'js-yaml';
 
-export default (dataFile, format) => {
+export default (data, format) => {
   switch (format) {
     case 'json':
-      return JSON.parse(dataFile);
+      return JSON.parse(data);
     case 'yml':
-      return YAML.load(dataFile);
+      return YAML.load(data);
     case 'yaml':
-      return YAML.load(dataFile);
+      return YAML.load(data);
     default:
       throw new Error(`'Unknown format! ${format}'`);
   }
